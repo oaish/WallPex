@@ -15,14 +15,19 @@ public class CollectionRepository : ICollectionRepository
         _db = db;
     }
 
-    public IEnumerable<CollectionReadDto> GetAll(string userId)
+    public async Task<IEnumerable<CollectionReadDto>> GetAllAsync(string userId)
     {
         var parameters = new { UserId = userId };
-
-        return _db.Query<CollectionReadDto>("spCollections_Read", parameters, commandType: CommandType.StoredProcedure);
+        return await _db.QueryAsync<CollectionReadDto>("spCollections_ReadMany", parameters, commandType: CommandType.StoredProcedure);
     }
 
-    public void Create(Collection collection)
+    public async Task<CollectionReadDto?> GetByIdAsync(int collectionId)
+    {
+        var parameters = new { CollectionId = collectionId };
+        return await _db.QueryFirstOrDefaultAsync<CollectionReadDto>("spCollections_ReadOne", parameters, commandType: CommandType.StoredProcedure);
+    }
+
+    public async Task CreateAsync(Collection collection)
     {
         var parameters = new
         {
@@ -31,10 +36,10 @@ public class CollectionRepository : ICollectionRepository
             collection.UserId
         };
 
-        _db.Execute("spCollections_Create", parameters, commandType: CommandType.StoredProcedure);
+        await _db.ExecuteAsync("spCollections_Create", parameters, commandType: CommandType.StoredProcedure);
     }
 
-    public void CreateWithItem(CollectionCreateWithItemDto collection)
+    public async Task CreateWithItemAsync(CollectionCreateWithItemDto collection)
     {
         var parameters = new
         {
@@ -45,10 +50,10 @@ public class CollectionRepository : ICollectionRepository
             collection.ItemUrl
         };
 
-        _db.Execute("spCollections_CreateWithItem", parameters, commandType: CommandType.StoredProcedure);
+        await _db.ExecuteAsync("spCollections_CreateWithItem", parameters, commandType: CommandType.StoredProcedure);
     }
 
-    public void Update(string collectionName, int collectionId)
+    public async Task UpdateAsync(string collectionName, int collectionId)
     {
         var parameters = new
         {
@@ -56,16 +61,16 @@ public class CollectionRepository : ICollectionRepository
             CollectionId = collectionId
         };
 
-        _db.Execute("spCollections_Update", parameters, commandType: CommandType.StoredProcedure);
+        await _db.ExecuteAsync("spCollections_Update", parameters, commandType: CommandType.StoredProcedure);
     }
 
-    public void Delete(int collectionId)
+    public async Task DeleteAsync(int collectionId)
     {
         var parameters = new
         {
             CollectionId = collectionId
         };
 
-        _db.Execute("spCollections_Delete", parameters, commandType: CommandType.StoredProcedure);
+        await _db.ExecuteAsync("spCollections_Delete", parameters, commandType: CommandType.StoredProcedure);
     }
 }

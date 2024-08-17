@@ -4,9 +4,10 @@ using WallPex.Models.Dto;
 namespace WallPex.API.Repositories.Contracts;
 public interface ICollectionRepository
 {
-    void Create(Collection collection);
-    void CreateWithItem(CollectionCreateWithItemDto collection);
-    void Delete(int collectionId);
-    IEnumerable<CollectionReadDto> GetAll(string userId);
-    void Update(string collectionName, int collectionId);
+    Task CreateAsync(Collection collection);
+    Task CreateWithItemAsync(CollectionCreateWithItemDto collection);
+    Task DeleteAsync(int collectionId);
+    Task<IEnumerable<CollectionReadDto>> GetAllAsync(string userId);
+    Task<CollectionReadDto?> GetByIdAsync(int collectionId);
+    Task UpdateAsync(string collectionName, int collectionId);
 }
