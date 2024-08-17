@@ -1,9 +1,9 @@
-﻿CREATE PROCEDURE [dbo].[spCollectionItems_Read]
+﻿CREATE PROCEDURE [dbo].[spCollectionItems_ReadMany]
     @CollectionId INT
 AS
 BEGIN
     SELECT 
-        [Id], [ImageId], [ImageUrl], [CollectionId]
+        [Id], [ItemId], [ItemUrl], [CollectionId]
     FROM 
         [dbo].[CollectionItems] 
     WHERE 

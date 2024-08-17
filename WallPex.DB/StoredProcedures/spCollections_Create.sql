@@ -4,6 +4,6 @@
     @UserId VARCHAR(450)
 AS
 BEGIN
-    INSERT INTO [dbo].[Collections] ([dbo].[Collections].[CollectionName], [dbo].[Collections].[CollectionType], [dbo].[Collections].[UserId])
+    INSERT INTO [dbo].[Collections] ([CollectionName], [CollectionType], [UserId])
     VALUES (@CollectionName, @CollectionType, @UserId);
 END

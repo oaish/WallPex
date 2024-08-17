@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [dbo].[CollectionItems]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [ImageId] INT NULL, 
-    [ImageUrl] VARCHAR(MAX) NULL, 
+    [ItemId] INT NULL, 
+    [ItemUrl] VARCHAR(MAX) NULL, 
     [CollectionId] INT NULL, 
     CONSTRAINT [FK_CollectionItems_ToCollections] 
     FOREIGN KEY ([CollectionId]) 

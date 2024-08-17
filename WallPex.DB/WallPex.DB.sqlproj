@@ -66,9 +66,12 @@
     <Build Include="StoredProcedures\spCollections_Delete.sql" />
     <Build Include="StoredProcedures\spCollections_Update.sql" />
     <Build Include="StoredProcedures\spCollectionItems_Create.sql" />
-    <Build Include="StoredProcedures\spCollections_Read.sql" />
+    <Build Include="StoredProcedures\spCollections_ReadMany.sql" />
     <Build Include="StoredProcedures\spCollectionItems_Delete.sql" />
-    <Build Include="StoredProcedures\spCollectionItems_Read.sql" />
+    <Build Include="StoredProcedures\spCollectionItems_ReadOne.sql" />
+    <Build Include="StoredProcedures\spCollections_CreateWithItem.sql" />
+    <Build Include="StoredProcedures\spCollections_ReadOne.sql" />
+    <Build Include="StoredProcedures\spCollectionItems_ReadMany.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="WallPex.DB.refactorlog" />
