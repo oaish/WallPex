@@ -1,0 +1,72 @@
+﻿@rendermode InteractiveAuto
+
+<section>
+    <img src="images/nature/1.jpg" alt="Nature" />
+    <div class="search-bar-base">
+        <div class="item-type-select-base">
+            <div class="item-type-select-options @(_isDropdownOpen ? "active" : "")">
+                <div class="item-type-select-item" @onclick="@(() => ItemSelect("fa-image", "Photos"))">
+                    <span class="fas fa-image"></span>
+                    Photos
+                </div>
+                <div class="item-type-select-item" @onclick="@(() => ItemSelect("fa-video", "Videos"))">
+                    <span class="fas fa-video"></span>
+                    Videos
+                </div>
+            </div>
+
+            <div class="item-type-select-item" @onclick="@DropdownToggle">
+                <span class="fas @_itemIcon"></span>
+                @_itemText
+                <span class="fas fa-@(_isDropdownOpen ? "chevron-up" : "chevron-down")" style="color: #ccc;"></span>
+            </div>
+        </div>
+
+        <InputText @bind-Value="SearchQuery" class="search-bar" 
+                   @oninput="(e) => OnInput(e)"
+                   @onkeydown="CheckForEnter"
+                   placeholder="@($"Search {_itemText}...")" />
+
+        <div class="search-icon">
+            <span class="fas fa-search"></span>
+        </div>
+    </div>
+</section>
+
+<h1>@SearchQuery</h1>
+
+@code {
+    private string _itemIcon = "fa-image";
+    private string _itemText = "Photos";
+
+    private string? SearchQuery { get; set; }
+
+    private bool _isDropdownOpen = false;
+
+    private void DropdownToggle()
+    {
+        _isDropdownOpen = !_isDropdownOpen;
+    }
+
+    private void ItemSelect(string itemIcon, string itemText)
+    {
+        _itemIcon = itemIcon;
+        _itemText = itemText;
+        DropdownToggle();
+        Console.WriteLine("Clicked " + _isDropdownOpen);
+
+    }
+
+    private void CheckForEnter(KeyboardEventArgs e)
+    {
+        var value = e.Code;
+        if (value is "Enter" or "NumpadEnter" or "Alt")
+        {
+            Console.WriteLine($"Query: {value} {SearchQuery}");
+        }
+    }
+
+    private void OnInput(ChangeEventArgs e) {
+        SearchQuery = e.Value?.ToString();
+    }
+}

@@ -5,9 +5,13 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "WallPex.DB", "WallPex.DB\WallPex.DB.sqlproj", "{1CFF4A17-A815-4C34-AB45-10584E0FADBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WallPex.API", "WallPex.API\WallPex.API.csproj", "{0903AE86-8BB5-4B62-BF5A-2ABB40BEF2A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WallPex.API", "WallPex.API\WallPex.API.csproj", "{0903AE86-8BB5-4B62-BF5A-2ABB40BEF2A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WallPex.Models", "WallPex.Lib\WallPex.Models.csproj", "{EB8792D8-292A-4F13-9F8B-67898C605529}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WallPex.Models", "WallPex.Lib\WallPex.Models.csproj", "{EB8792D8-292A-4F13-9F8B-67898C605529}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WallPex.Web", "WallPex.Web\WallPex.Web\WallPex.Web.csproj", "{45CFE8D1-EA5A-49C4-ABFF-3AAD1E158CDA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WallPex.Web.Client", "WallPex.Web\WallPex.Web.Client\WallPex.Web.Client.csproj", "{3AEB569D-5F3D-4F60-9403-3C07CACF9C23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +33,14 @@ Global
 		{EB8792D8-292A-4F13-9F8B-67898C605529}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB8792D8-292A-4F13-9F8B-67898C605529}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB8792D8-292A-4F13-9F8B-67898C605529}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45CFE8D1-EA5A-49C4-ABFF-3AAD1E158CDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45CFE8D1-EA5A-49C4-ABFF-3AAD1E158CDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45CFE8D1-EA5A-49C4-ABFF-3AAD1E158CDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45CFE8D1-EA5A-49C4-ABFF-3AAD1E158CDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AEB569D-5F3D-4F60-9403-3C07CACF9C23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AEB569D-5F3D-4F60-9403-3C07CACF9C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AEB569D-5F3D-4F60-9403-3C07CACF9C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AEB569D-5F3D-4F60-9403-3C07CACF9C23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

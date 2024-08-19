@@ -1,0 +1,7 @@
+﻿.nav-item {
+    min-width: 250px;
+}
+
+.nav-item span {
+    min-width: 15px;
+}

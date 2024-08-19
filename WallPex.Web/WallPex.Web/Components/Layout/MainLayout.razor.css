@@ -1,0 +1,20 @@
+.page {
+    display: flex;
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #333;
+}
+
+
+aside {
+    width: max-content;
+    height: 100vh;
+    background-color: #1d1d1d;
+}
+
+main {
+    width: 100%;
+    overflow: auto;
+}

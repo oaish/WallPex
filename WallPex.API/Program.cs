@@ -22,6 +22,14 @@ public class Program
         builder.Services.AddScoped<ICollectionService, CollectionService>();
         builder.Services.AddScoped<ICollectionItemService, CollectionItemService>();
 
+        builder.Services.AddCors(policy =>
+        {
+            policy.AddPolicy("OpenCorsPolicy", opt =>
+            opt.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+        });
+
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
@@ -39,6 +47,7 @@ public class Program
 
         app.UseAuthorization();
 
+        app.UseCors("OpenCorsPolicy");
 
         app.MapControllers();
 
